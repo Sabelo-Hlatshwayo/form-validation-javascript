@@ -38,4 +38,5 @@ body {
     background-color: #fff;
     border-radius: 0.4rem;
     text-align: center;
+    box-shadow: 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.3);
 }
