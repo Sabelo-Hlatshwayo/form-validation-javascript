@@ -48,3 +48,9 @@ body {
     align-items: flex-start;
     gap: 0.6rem;
 }
+
+.label {
+    font-size: 1.6rem;
+    color: #777;
+    text-transform: capitalize;
+}
