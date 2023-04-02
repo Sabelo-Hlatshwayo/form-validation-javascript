@@ -81,3 +81,17 @@ body {
 .form-content .form-control:last-child {
     margin-bottom: 3.2rem;
 }
+
+.btnSubmit {
+    display: inline-block;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+    text-transform: capitalize;
+    background-color: #3498db;
+    width: 100%;
+    padding: 1.2rem;
+    cursor: pointer;
+}
