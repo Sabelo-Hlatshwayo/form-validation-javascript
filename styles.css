@@ -69,3 +69,7 @@ body {
     border: 0.2rem solid transparent;
     outline: 0.2rem solid #bbb;
 }
+
+.form-content {
+    width: 100%;
+}
