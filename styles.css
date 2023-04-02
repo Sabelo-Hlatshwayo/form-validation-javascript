@@ -64,3 +64,8 @@ body {
     font-weight: 500;
     color: #333;
 }
+
+.input:focus {
+    border: 0.2rem solid transparent;
+    outline: 0.2rem solid #bbb;
+}
