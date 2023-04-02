@@ -73,3 +73,11 @@ body {
 .form-content {
     width: 100%;
 }
+
+.form-content .form-control:not(:last-child) {
+    margin-bottom: 2.4rem;
+}
+
+.form-content .form-control:last-child {
+    margin-bottom: 3.2rem;
+}
