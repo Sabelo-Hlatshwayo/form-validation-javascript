@@ -75,7 +75,7 @@ body {
 }
 
 .form-content .form-control:not(:last-child) {
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.8rem;
 }
 
 .form-content .form-control:last-child {
