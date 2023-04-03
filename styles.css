@@ -95,3 +95,8 @@ body {
     padding: 1.2rem;
     cursor: pointer;
 }
+
+.error {
+    font-size: 1.4rem;
+    color: #e74c3c;
+}
