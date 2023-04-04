@@ -31,10 +31,8 @@ function validateUsername() {
     }
 }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    validateUsername();
-
+// Validate the email
+function validateEmail() {
     const re =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -49,4 +47,9 @@ form.addEventListener("submit", (e) => {
         email.nextElementSibling.style.visibility = "visible";
         email.style.outline = "0.2rem solid #e74c3c";
     }
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    validateUsername();
 });
