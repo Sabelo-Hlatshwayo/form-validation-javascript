@@ -9,16 +9,16 @@ const btnSubmit = document.querySelector(".btnSubmit");
 
 const minUsernameLength = 3;
 const maxUsernameLength = 15;
+const minUsernameError = "Username must be at least 3 characters";
+const maxUsernameError = "Username must be less than 15 characters";
 
 function validateUsername() {
     if (username.value.length < minUsernameLength) {
-        username.nextElementSibling.innerHTML =
-            "Username must be at least 3 characters";
+        username.nextElementSibling.innerHTML = minUsernameError;
         username.nextElementSibling.style.visibility = "visible";
         username.style.outline = "0.2rem solid #e74c3c";
     } else if (username.value.length >= maxUsernameLength) {
-        username.nextElementSibling.innerHTML =
-            "Username must be less than 15 characters";
+        username.nextElementSibling.innerHTML = maxUsernameError;
         username.nextElementSibling.style.visibility = "visible";
         username.style.outline = "0.2rem solid #e74c3c";
     } else {
