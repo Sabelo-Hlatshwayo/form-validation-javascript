@@ -6,3 +6,8 @@ const email = document.querySelector("#email");
 const firstPassword = document.querySelector("#firstPassword");
 const secondPassword = document.querySelector("#secondPassword");
 const btnSubmit = document.querySelector(".btnSubmit");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("FORM HAS BEEN SUBMITTED!!!");
+});
