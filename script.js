@@ -7,15 +7,18 @@ const firstPassword = document.querySelector("#firstPassword");
 const secondPassword = document.querySelector("#secondPassword");
 const btnSubmit = document.querySelector(".btnSubmit");
 
+const minUsernameLength = 3;
+const maxUsernameLength = 15;
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    if (username.value.length < 3) {
+    if (username.value.length < minUsernameLength) {
         username.nextElementSibling.innerHTML =
             "Username must be at least 3 characters";
         username.nextElementSibling.style.visibility = "visible";
         username.style.outline = "0.2rem solid #e74c3c";
-    } else if (username.value.length >= 15) {
+    } else if (username.value.length >= maxUsernameLength) {
         username.nextElementSibling.innerHTML =
             "Username must be less than 15 characters";
         username.nextElementSibling.style.visibility = "visible";
