@@ -10,9 +10,7 @@ const btnSubmit = document.querySelector(".btnSubmit");
 const minUsernameLength = 3;
 const maxUsernameLength = 15;
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
+function validateUsername() {
     if (username.value.length < minUsernameLength) {
         username.nextElementSibling.innerHTML =
             "Username must be at least 3 characters";
@@ -28,4 +26,9 @@ form.addEventListener("submit", (e) => {
         username.nextElementSibling.style.visibility = "visible";
         username.style.outline = "0.2rem solid #2ecc71";
     }
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    validateUsername();
 });
