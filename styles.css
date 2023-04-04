@@ -58,7 +58,8 @@ body {
 .input {
     width: 100%;
     padding: 1rem;
-    border: 0.2rem solid #f0f0f0;
+    border: none;
+    outline: 0.2rem solid #f0f0f0;
     border-radius: 0.4rem;
     font-size: 1.6rem;
     font-weight: 500;
@@ -66,7 +67,6 @@ body {
 }
 
 .input:focus {
-    border: 0.2rem solid transparent;
     outline: 0.2rem solid #bbb;
 }
 

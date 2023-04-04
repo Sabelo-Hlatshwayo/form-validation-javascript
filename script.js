@@ -9,5 +9,20 @@ const btnSubmit = document.querySelector(".btnSubmit");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("FORM HAS BEEN SUBMITTED!!!");
+
+    if (username.value.length < 3) {
+        username.nextElementSibling.innerHTML =
+            "Username must be at least 3 characters";
+        username.nextElementSibling.style.visibility = "visible";
+        username.style.outline = "0.2rem solid #e74c3c";
+    } else if (username.value.length >= 15) {
+        username.nextElementSibling.innerHTML =
+            "Username must be less than 15 characters";
+        username.nextElementSibling.style.visibility = "visible";
+        username.style.outline = "0.2rem solid #e74c3c";
+    } else {
+        username.nextElementSibling.innerHTML = "&nbsp;";
+        username.nextElementSibling.style.visibility = "visible";
+        username.style.outline = "0.2rem solid #2ecc71";
+    }
 });
