@@ -26,6 +26,18 @@ function getInputField(element) {
     return element.id.charAt(0).toUpperCase() + element.id.slice(1);
 }
 
+function validateLength(element, minimum, maximum) {
+    if (element.value.length < minimum) {
+        element.nextElementSibling.innerHTML = `${getInputField(
+            element
+        )} must be at least ${minimum} characters`;
+    } else if (element.value.length >= maximum) {
+        element.nextElementSibling.innerHTML = `${getInputField(
+            element
+        )} must be less than ${maximum} characters`;
+    }
+}
+
 // Validate the username
 function validateUsername() {
     const trimmedUsername = username.value.trim().length;
