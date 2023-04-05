@@ -52,4 +52,5 @@ function validateEmail() {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     validateUsername();
+    validateEmail();
 });
