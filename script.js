@@ -32,14 +32,17 @@ function validateLength(element, minimum, maximum) {
         element.nextElementSibling.innerHTML = `${getInputField(
             element
         )} must be at least ${minimum} characters`;
+        displayErrorOutline(element);
     } else if (element.value.length >= maximum) {
         element.nextElementSibling.style.visibility = "visible";
         element.nextElementSibling.innerHTML = `${getInputField(
             element
         )} must be less than ${maximum} characters`;
+        displayErrorOutline(element);
     } else {
         element.nextElementSibling.innerHTML = "&nbsp;";
         element.nextElementSibling.style.visibility = "hidden";
+        displaySuccessOutline(element);
     }
 }
 
