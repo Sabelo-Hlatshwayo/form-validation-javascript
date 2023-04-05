@@ -43,11 +43,6 @@ function validateLength(element, minimum, maximum) {
     }
 }
 
-// Validate the username
-// function validateUsername() {
-//     const trimmedUsername = username.value.trim().length;
-// }
-
 // Validate the email
 function validateEmail() {
     const re =
