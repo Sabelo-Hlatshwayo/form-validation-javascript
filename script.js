@@ -12,23 +12,19 @@ const maxUsernameLength = 15;
 const minUsernameError = "Username must be at least 3 characters";
 const maxUsernameError = "Username must be less than 15 characters";
 
+const emailError = "Email is not valid";
+
+function displayErrorOutline(element) {
+    element.style.outline = "0.2rem solid #e74c3c";
+}
+
+function displaySuccessOutline(element) {
+    element.style.outline = "0.2rem solid #2ecc71";
+}
+
 // Validate the username
 function validateUsername() {
     const trimmedUsername = username.value.trim().length;
-
-    if (trimmedUsername < minUsernameLength) {
-        username.nextElementSibling.innerHTML = minUsernameError;
-        username.nextElementSibling.style.visibility = "visible";
-        username.style.outline = "0.2rem solid #e74c3c";
-    } else if (trimmedUsername >= maxUsernameLength) {
-        username.nextElementSibling.innerHTML = maxUsernameError;
-        username.nextElementSibling.style.visibility = "visible";
-        username.style.outline = "0.2rem solid #e74c3c";
-    } else {
-        username.nextElementSibling.innerHTML = "&nbsp;";
-        username.nextElementSibling.style.visibility = "visible";
-        username.style.outline = "0.2rem solid #2ecc71";
-    }
 }
 
 // Validate the email
@@ -43,14 +39,16 @@ function validateEmail() {
         email.nextElementSibling.style.visibility = "visible";
         email.style.outline = "0.2rem solid #2ecc71";
     } else {
-        email.nextElementSibling.innerHTML = "Email is not valid";
+        email.nextElementSibling.innerHTML = emailError;
         email.nextElementSibling.style.visibility = "visible";
         email.style.outline = "0.2rem solid #e74c3c";
     }
 }
 
 form.addEventListener("submit", (e) => {
+    validateLength(username, minUsernameLength, maxUsernameLength);
+
     e.preventDefault();
     validateUsername();
-    validateEmail();
+    // validateEmail();
 });
