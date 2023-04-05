@@ -22,6 +22,10 @@ function displaySuccessOutline(element) {
     element.style.outline = "0.2rem solid #2ecc71";
 }
 
+function getInputField(element) {
+    return element.id.charAt(0).toUpperCase() + element.id.slice(1);
+}
+
 // Validate the username
 function validateUsername() {
     const trimmedUsername = username.value.trim().length;
