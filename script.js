@@ -26,18 +26,23 @@ function getInputField(element) {
     return element.id.charAt(0).toUpperCase() + element.id.slice(1);
 }
 
+function displayErrorMessage(element, message) {
+    element.nextElementSibling.style.visibility = "visible";
+    element.nextElementSibling.innerHTML = message;
+}
+
 function validateLength(element, minimum, maximum) {
     if (element.value.length < minimum) {
-        element.nextElementSibling.style.visibility = "visible";
-        element.nextElementSibling.innerHTML = `${getInputField(
-            element
-        )} must be at least ${minimum} characters`;
+        displayErrorMessage(
+            element,
+            `${getInputField(element)} must be at least ${minimum} characters`
+        );
         displayErrorOutline(element);
     } else if (element.value.length >= maximum) {
-        element.nextElementSibling.style.visibility = "visible";
-        element.nextElementSibling.innerHTML = `${getInputField(
-            element
-        )} must be less than ${maximum} characters`;
+        displayErrorMessage(
+            element,
+            `${getInputField(element)} must be less than ${maximum} characters`
+        );
         displayErrorOutline(element);
     } else {
         element.nextElementSibling.innerHTML = "&nbsp;";
