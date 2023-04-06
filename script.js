@@ -31,6 +31,11 @@ function displayErrorMessage(element, message) {
     element.nextElementSibling.innerHTML = message;
 }
 
+function hideErrorMessage(element) {
+    element.nextElementSibling.innerHTML = "&nbsp;";
+    element.nextElementSibling.style.visibility = "hidden";
+}
+
 function validateLength(element, minimum, maximum) {
     if (element.value.length < minimum) {
         displayErrorMessage(
@@ -45,8 +50,7 @@ function validateLength(element, minimum, maximum) {
         );
         displayErrorOutline(element);
     } else {
-        element.nextElementSibling.innerHTML = "&nbsp;";
-        element.nextElementSibling.style.visibility = "hidden";
+        hideErrorMessage(element);
         displaySuccessOutline(element);
     }
 }
