@@ -9,8 +9,6 @@ const btnSubmit = document.querySelector(".btnSubmit");
 
 const minUsernameLength = 3;
 const maxUsernameLength = 15;
-const minUsernameError = "Username must be at least 3 characters";
-const maxUsernameError = "Username must be less than 15 characters";
 
 const emailError = "Email is not valid";
 
