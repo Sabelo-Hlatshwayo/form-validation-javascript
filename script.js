@@ -35,13 +35,15 @@ function hideErrorMessage(element) {
 }
 
 function validateLength(element, minimum, maximum) {
-    if (element.value.length < minimum) {
+    const trimmedElement = element.value.trim();
+
+    if (trimmedElement.length < minimum) {
         displayErrorMessage(
             element,
             `${getInputField(element)} must be at least ${minimum} characters`
         );
         displayErrorOutline(element);
-    } else if (element.value.length >= maximum) {
+    } else if (trimmedElement.length >= maximum) {
         displayErrorMessage(
             element,
             `${getInputField(element)} must be less than ${maximum} characters`
@@ -73,6 +75,7 @@ function validateEmail() {
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+
     validateLength(username, minUsernameLength, maxUsernameLength);
     // validateEmail();
 });
