@@ -12,6 +12,9 @@ const maxUsernameLength = 15;
 
 const emailError = "Email is not valid";
 
+const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 function displayErrorOutline(element) {
     element.style.outline = "0.2rem solid #e74c3c";
 }
@@ -57,19 +60,14 @@ function validateLength(element, minimum, maximum) {
 
 // Validate the email
 function validateEmail() {
-    const re =
-        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
     const trimmedEmail = email.value.trim();
 
     if (re.test(trimmedEmail)) {
-        email.nextElementSibling.innerHTML = "&nbsp;";
-        email.nextElementSibling.style.visibility = "visible";
-        email.style.outline = "0.2rem solid #2ecc71";
+        hideErrorMessage(email);
+        displaySuccessOutline(email);
     } else {
-        email.nextElementSibling.innerHTML = emailError;
-        email.nextElementSibling.style.visibility = "visible";
-        email.style.outline = "0.2rem solid #e74c3c";
+        displayErrorMessage(email, "Email is not valid");
+        displayErrorOutline(email);
     }
 }
 
@@ -77,5 +75,5 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     validateLength(username, minUsernameLength, maxUsernameLength);
-    // validateEmail();
+    validateEmail();
 });
