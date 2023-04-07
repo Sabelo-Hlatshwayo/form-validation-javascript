@@ -10,36 +10,20 @@ import {
 } from "./selectors.js";
 
 import {
+    displayErrorOutline,
+    displaySuccessOutline,
+    getInputField,
+    displayErrorMessage,
+    hideErrorMessage,
+} from "./helpers.js";
+
+import {
     minUsernameLength,
     maxUsernameLength,
     minPasswordLength,
     maxPasswordLength,
     regularExpression,
 } from "./constants.js";
-
-function displayErrorOutline(element) {
-    element.style.outline = "0.2rem solid #e74c3c";
-}
-
-function displaySuccessOutline(element) {
-    element.style.outline = "0.2rem solid #2ecc71";
-}
-
-function getInputField(element) {
-    return element.type === "password"
-        ? element.name.charAt(0).toUpperCase() + element.name.slice(1)
-        : element.id.charAt(0).toUpperCase() + element.id.slice(1);
-}
-
-function displayErrorMessage(element, message) {
-    element.nextElementSibling.style.visibility = "visible";
-    element.nextElementSibling.innerHTML = message;
-}
-
-function hideErrorMessage(element) {
-    element.nextElementSibling.innerHTML = "&nbsp;";
-    element.nextElementSibling.style.visibility = "hidden";
-}
 
 function validateLength(element, minimum, maximum) {
     const trimmedElement = element.value.trim();
