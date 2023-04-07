@@ -9,14 +9,13 @@ import {
     inputs,
 } from "./selectors.js";
 
-const minUsernameLength = 3;
-const maxUsernameLength = 15;
-
-const minPasswordLength = 6;
-const maxPasswordLength = 25;
-
-const re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+import {
+    minUsernameLength,
+    maxUsernameLength,
+    minPasswordLength,
+    maxPasswordLength,
+    regularExpression,
+} from "./constants.js";
 
 function displayErrorOutline(element) {
     element.style.outline = "0.2rem solid #e74c3c";
@@ -67,7 +66,7 @@ function validateLength(element, minimum, maximum) {
 function validateEmail() {
     const trimmedEmail = email.value.trim();
 
-    if (re.test(trimmedEmail)) {
+    if (regularExpression.test(trimmedEmail)) {
         hideErrorMessage(email);
         displaySuccessOutline(email);
     } else {
