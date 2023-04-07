@@ -10,6 +10,9 @@ const btnSubmit = document.querySelector(".btnSubmit");
 const minUsernameLength = 3;
 const maxUsernameLength = 15;
 
+const minPasswordLength = 6;
+const maxPasswordLength = 25;
+
 const re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -44,7 +47,7 @@ function validateLength(element, minimum, maximum) {
             `${getInputField(element)} must be at least ${minimum} characters`
         );
         displayErrorOutline(element);
-    } else if (trimmedElement.length >= maximum) {
+    } else if (trimmedElement.length > maximum) {
         displayErrorMessage(
             element,
             `${getInputField(element)} must be less than ${maximum} characters`
@@ -72,6 +75,10 @@ function validateEmail() {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    // Validate the length of the username
     validateLength(username, minUsernameLength, maxUsernameLength);
+    // Validate the format of the email
     validateEmail();
+    // Validate the length of the first password
+    validateLength(firstPassword, minPasswordLength, maxPasswordLength);
 });
