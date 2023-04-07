@@ -25,7 +25,9 @@ function displaySuccessOutline(element) {
 }
 
 function getInputField(element) {
-    return element.id.charAt(0).toUpperCase() + element.id.slice(1);
+    return element.type === "password"
+        ? element.type.charAt(0).toUpperCase() + element.type.slice(1)
+        : element.id.charAt(0).toUpperCase() + element.id.slice(1);
 }
 
 function displayErrorMessage(element, message) {
