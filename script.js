@@ -10,8 +10,6 @@ const btnSubmit = document.querySelector(".btnSubmit");
 const minUsernameLength = 3;
 const maxUsernameLength = 15;
 
-const emailError = "Email is not valid";
-
 const re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
