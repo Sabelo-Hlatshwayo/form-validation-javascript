@@ -6,6 +6,7 @@ const email = document.querySelector("#email");
 const firstPassword = document.querySelector("#firstPassword");
 const secondPassword = document.querySelector("#secondPassword");
 const btnSubmit = document.querySelector(".btnSubmit");
+const inputs = document.querySelectorAll(".input");
 
 const minUsernameLength = 3;
 const maxUsernameLength = 15;
@@ -26,7 +27,7 @@ function displaySuccessOutline(element) {
 
 function getInputField(element) {
     return element.type === "password"
-        ? element.type.charAt(0).toUpperCase() + element.type.slice(1)
+        ? element.name.charAt(0).toUpperCase() + element.name.slice(1)
         : element.id.charAt(0).toUpperCase() + element.id.slice(1);
 }
 
@@ -74,7 +75,27 @@ function validateEmail() {
     }
 }
 
+function validateMatchingPasswords() {
+    if (firstPassword.value !== secondPassword.value) {
+        displayErrorMessage(secondPassword, "Passwords do not match");
+        displayErrorOutline(secondPassword);
+    } else {
+        hideErrorMessage(secondPassword);
+        displaySuccessOutline(secondPassword);
+    }
+}
+
+function checkRequiredInputs() {
+    inputs.forEach((input) => {
+        if (input.value.trim() === "") {
+            displayErrorMessage(input, `${getInputField(input)} is required`);
+            displayErrorOutline(input);
+        }
+    });
+}
+
 form.addEventListener("submit", (e) => {
+    // Prevent the default behaviour when the form is submitted
     e.preventDefault();
 
     // Validate the length of the username
@@ -83,4 +104,8 @@ form.addEventListener("submit", (e) => {
     validateEmail();
     // Validate the length of the first password
     validateLength(firstPassword, minPasswordLength, maxPasswordLength);
+    // Validate the second password
+    validateMatchingPasswords();
+    // Check all required inputs
+    checkRequiredInputs();
 });
